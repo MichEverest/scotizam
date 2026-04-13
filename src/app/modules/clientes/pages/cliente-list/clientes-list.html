@@ -1,0 +1,33 @@
+<div class="container">
+
+  <div class="glass card">
+
+    <div class="header">
+      <h2>Clientes</h2>
+    </div>
+
+    <div class="table">
+
+      <div class="row head">
+        <span>Nombre</span>
+        <span>Compras</span>
+        <span>Total</span>
+        <span>Frecuentes</span>
+      </div>
+
+      <div class="row item" *ngFor="let c of clientes">
+        <span>{{ c.nombre }}</span>
+        <span>{{ c.compras }}</span>
+        <span>{{ c.total | currency }}</span>
+        <span class="tags">
+          <span class="tag" *ngFor="let p of c.productosFrecuentes">
+            {{ p }}
+          </span>
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

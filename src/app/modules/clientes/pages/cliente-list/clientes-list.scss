@@ -1,0 +1,71 @@
+.container {
+  padding: 40px;
+}
+
+/* header */
+.header {
+  margin-bottom: 20px;
+}
+
+/* tabla */
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* filas */
+.row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+
+  padding: 14px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(12px);
+
+  transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+}
+
+/* encabezado */
+.head {
+  background: transparent;
+  border: none;
+  opacity: 0.6;
+  font-weight: 600;
+}
+
+/* hover fluido */
+.item:hover {
+  transform: translateY(-4px) scale(1.01);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* tags productos */
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 5px 10px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+
+  backdrop-filter: blur(10px);
+  font-size: 12px;
+
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}

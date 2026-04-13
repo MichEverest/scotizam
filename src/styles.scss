@@ -1,1 +1,218 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-highlight: rgba(255, 255, 255, 0.4);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.6);
+
+  --radius: 18px;
+}
+
+/* =========================
+   RESET + PERFORMANCE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  transition: all 0.25s cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+
+/* =========================
+   BODY (FONDO iOS)
+========================= */
+body {
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+
+  background:
+    radial-gradient(circle at 20% 20%, #1e293b, transparent 40%),
+    radial-gradient(circle at 80% 30%, #0f172a, transparent 50%),
+    radial-gradient(circle at 50% 80%, #020617, #000 90%);
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   GLASS (LIQUID REAL)
+========================= */
+.glass {
+  position: relative;
+  background: var(--glass-bg);
+  border-radius: var(--radius);
+
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+
+  border: 1px solid var(--glass-border);
+
+  box-shadow:
+    0 10px 40px var(--glass-shadow),
+    inset 0 1px 0 var(--glass-highlight);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.35s cubic-bezier(.2,.8,.2,1);
+}
+
+/* 🚀 EFECTO LEVANTAR */
+.glass:hover {
+  transform: translateY(-8px) scale(1.02);
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* ✨ BRILLO EN MOVIMIENTO CONSTANTE */
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.25),
+    transparent 70%
+  );
+
+  animation: glassFlow 6s linear infinite;
+  opacity: 0.5;
+}
+
+/* 🌊 ANIMACIÓN DE LUZ */
+@keyframes glassFlow {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
+}
+
+/* 🌫️ LUZ AMBIENTAL ORGÁNICA */
+.glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(255,255,255,0.15),
+    transparent 60%
+  );
+
+  animation: glowMove 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* 💡 MOVIMIENTO SUAVE */
+@keyframes glowMove {
+  0% {
+    transform: translate(0,0);
+  }
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+  padding: 20px;
+}
+
+/* =========================
+   BOTONES (GLASS)
+========================= */
+button {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: white;
+
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* =========================
+   INPUTS
+========================= */
+input {
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: white;
+
+  backdrop-filter: blur(10px);
+  outline: none;
+}
+
+input:focus {
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.1);
+}
+
+/* =========================
+   SCROLLBAR PRO
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+/* =========================
+   TEXTOS
+========================= */
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+/* =========================
+   ANIMACIONES GENERALES
+========================= */
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,64 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <h1>Panel de Administración</h1>
+    <p>{{ fechaActual | date:'fullDate' }}</p>
+  </header>
+
+  <div class="admin-grid">
+    <div class="admin-card wide-card">
+      <div class="card-header">
+        <h3>Clientes</h3>
+        <input type="text" placeholder="Buscar cliente..." class="search-bar">
+      </div>
+      <div class="customer-list">
+        <div class="customer-item" *ngFor="let cliente of clientes">
+          <span>{{ cliente.nombre }}</span>
+          <span class="status-pill">Activo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-card financial-card">
+      <div class="financial-side">
+        <h3>Ventas Totales</h3>
+        <div class="stat">
+          <small>Hoy</small>
+          <p>$1,200</p>
+        </div>
+        <div class="stat">
+          <small>Mes</small>
+          <p>$45,000</p>
+        </div>
+        <div class="stat">
+          <small>Año</small>
+          <p>$540,000</p>
+        </div>
+      </div>
+      <div class="top-products">
+        <h3>Top Productos</h3>
+        <ul>
+          <li>Producto A <span>(150)</span></li>
+          <li>Producto B <span>(85)</span></li>
+          <li>Producto C <span>(40)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <h3>Historial Reciente</h3>
+      <div class="history-list">
+        <div class="history-item" *ngFor="let venta of historial">
+          <p><strong>{{ venta.cliente }}</strong></p>
+          <small>{{ venta.monto | currency }} - {{ venta.fecha }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-card soon">
+      <div class="center-content">
+        <i class="icon-lock"></i>
+        <p>Próximamente...</p>
+      </div>
+    </div>
+  </div>
+</div>

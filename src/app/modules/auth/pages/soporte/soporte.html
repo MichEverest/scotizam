@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div class="glass card">
+
+    <h2>Centro de Soporte</h2>
+
+    <p class="subtitle">
+      ¿En qué podemos ayudarte?
+    </p>
+
+    <div class="faq">
+
+      <div class="item" *ngFor="let f of faqs">
+
+        <h4>{{ f.pregunta }}</h4>
+        <p>{{ f.respuesta }}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

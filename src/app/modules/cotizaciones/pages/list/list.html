@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="glass card">
+
+    <div class="header">
+      <h2>Cotizaciones</h2>
+      <button routerLink="/cotizaciones/new">Nueva</button>
+    </div>
+
+    <div class="table">
+
+      <div class="row head">
+        <span>Cliente</span>
+        <span>Fecha</span>
+        <span>Total</span>
+        <span>Estado</span>
+      </div>
+
+      <div class="row item" *ngFor="let c of cotizaciones">
+        <span>{{ c.cliente }}</span>
+        <span>{{ c.fecha }}</span>
+        <span>{{ c.total | currency }}</span>
+        <span class="badge" [ngClass]="c.estado.toLowerCase()">
+          {{ c.estado }}
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

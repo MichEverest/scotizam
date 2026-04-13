@@ -1,0 +1,51 @@
+.container {
+  padding: 40px;
+}
+
+/* título */
+h2 {
+  margin-bottom: 10px;
+}
+
+/* subtítulo */
+.subtitle {
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+/* lista faq */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* item */
+.item {
+  padding: 15px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+/* hover */
+.item:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.1);
+}
+
+/* pregunta */
+.item h4 {
+  margin-bottom: 5px;
+}
+
+/* respuesta */
+.item p {
+  font-size: 14px;
+  opacity: 0.8;
+}

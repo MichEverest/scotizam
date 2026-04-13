@@ -1,0 +1,36 @@
+<div class="dashboard-container">
+  <header class="header">
+    <h1>Panel de Cotizaciones</h1>
+    <p>Gestiona tus productos y genera nuevas propuestas</p>
+  </header>
+
+  <main class="content">
+    <div class="action-bar">
+      <button class="add-main-btn" routerLink="../form">
+        + Nuevo Producto
+      </button>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let item of items">
+        <div class="product-info">
+          <h3>{{item.nombre}}</h3>
+          <p>{{item.descripcion}}</p>
+          <span class="price">{{item.precio | currency}}</span>
+        </div>
+        <div class="card-actions">
+          <button class="edit-btn" [routerLink]="['../form', item.id]">Editar</button>
+          <button class="add-btn">Cotizar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="support" routerLink="/soporte">
+  <div class="bubble">Atención al cliente</div>
+  <img 
+    src="https://i2.wp.com/images.genshin-builds.com/genshin/characters/mualani/image.png?strip=all&quality=100&w=160" 
+    alt="soporte"
+  />
+</div>

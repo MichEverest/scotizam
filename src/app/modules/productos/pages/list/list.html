@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="glass card">
+
+    <h2>Cotizaciones</h2>
+
+    <div class="list">
+      <div class="item glass" *ngFor="let c of cotizaciones">
+        <div>
+          <strong>{{ c.cliente }}</strong>
+          <p>{{ c.fecha }}</p>
+        </div>
+
+        <div class="total">
+          {{ c.total | currency }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

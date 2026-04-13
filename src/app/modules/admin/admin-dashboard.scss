@@ -1,0 +1,73 @@
+.admin-container {
+  min-height: 100vh;
+  padding: 30px;
+  background: url('https://backiee.com/static/wallpapers/1000x563/395611.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.admin-header {
+  margin-bottom: 30px;
+  h1 { font-size: 2rem; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+  gap: 20px;
+}
+
+.admin-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ajustes específicos para las tarjetas */
+.search-bar {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.2);
+  color: white;
+  margin-top: 10px;
+}
+
+.customer-list, .history-list {
+  margin-top: 15px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.customer-item, .history-item {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.financial-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dividimos en dos: finanzas y productos */
+  gap: 15px;
+}
+
+.stat p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #a5f3fc;
+}
+
+.soon {
+  justify-content: center;
+  align-items: center;
+  opacity: 0.6;
+  border: 2px dashed rgba(255,255,255,0.2);
+}

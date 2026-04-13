@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="glass card">
+
+    <h2>Nueva Cotización</h2>
+
+    <form [formGroup]="form">
+
+      <input formControlName="cliente" placeholder="Cliente" />
+
+      <div formArrayName="items">
+        <div class="item" *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+
+          <input formControlName="producto" placeholder="Producto" />
+          <input type="number" formControlName="cantidad" />
+          <input type="number" formControlName="precio" />
+
+          <button type="button" (click)="removeItem(i)">X</button>
+
+        </div>
+      </div>
+
+      <button type="button" (click)="addItem()">Agregar</button>
+
+      <h3>Total: {{ total | currency }}</h3>
+
+      <button type="button" (click)="submit()">Guardar</button>
+
+    </form>
+
+  </div>
+</div>

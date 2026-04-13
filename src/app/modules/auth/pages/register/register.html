@@ -1,0 +1,73 @@
+<div class="container center">
+  <div class="register">
+    <h2>Crear cuenta</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="input-group">
+        <input 
+          formControlName="nombre"
+          placeholder="Nombre completo"
+          [class.error]="form.get('nombre')?.invalid && form.get('nombre')?.touched"
+        />
+        <span class="error-text" *ngIf="form.get('nombre')?.touched && form.get('nombre')?.invalid">
+          El nombre es obligatorio
+        </span>
+      </div>
+
+      <div class="input-group">
+        <input 
+          formControlName="email"
+          placeholder="Correo"
+          [class.error]="form.get('email')?.invalid && form.get('email')?.touched"
+        />
+        <span class="error-text" *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched">
+          El correo es obligatorio
+        </span>
+        <span class="error-text" *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched">
+          Correo inválido
+        </span>
+      </div>
+
+      <div class="input-group">
+        <input 
+          type="password"
+          formControlName="password"
+          placeholder="Contraseña"
+          [class.error]="form.get('password')?.invalid && form.get('password')?.touched"
+        />
+        <span class="error-text" *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+          Contraseña obligatoria
+        </span>
+      </div>
+
+      <div class="input-group">
+        <input 
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Confirmar contraseña"
+          [class.error]="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched"
+        />
+        <span class="error-text" *ngIf="form.get('confirmPassword')?.errors?.['mismatch']">
+          Las contraseñas no coinciden
+        </span>
+      </div>
+
+      <button type="submit" [disabled]="form.invalid || loading">
+        Crear cuenta
+      </button>
+
+      <div class="extra">
+        ¿Ya tienes cuenta?
+        <a routerLink="/login">Inicia sesión</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="support" routerLink="/soporte">
+  <div class="bubble">Atención al cliente</div>
+  <img 
+    src="https://i2.wp.com/images.genshin-builds.com/genshin/characters/mualani/image.png?strip=all&quality=100&w=160" 
+    alt="soporte"
+  />
+</div>

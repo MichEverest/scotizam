@@ -1,0 +1,44 @@
+.container {
+  padding: 40px;
+}
+
+.card {
+  padding: 25px;
+}
+
+/* lista */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* item */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px;
+  border-radius: 14px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+/* animación fluida 60-120hz */
+.item:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.total {
+  font-weight: 600;
+  opacity: 0.9;
+}

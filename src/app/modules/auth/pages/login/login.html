@@ -1,0 +1,55 @@
+<div class="container center">
+  <div class="login">
+    <h2>Iniciar sesión</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="input-group">
+        <input 
+          formControlName="email"
+          placeholder="Correo"
+          [class.error]="form.get('email')?.invalid && form.get('email')?.touched"
+        />
+
+        <span class="error-text" *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched">
+          El correo es obligatorio
+        </span>
+
+        <span class="error-text" *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched">
+          Formato de correo inválido
+        </span>
+      </div>
+
+      <div class="input-group">
+        <input 
+          type="password"
+          formControlName="password"
+          placeholder="Contraseña"
+          [class.error]="form.get('password')?.invalid && form.get('password')?.touched"
+        />
+
+        <span class="error-text" *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+          La contraseña es obligatoria
+        </span>
+      </div>
+
+      <button 
+        type="submit" 
+        [disabled]="form.invalid"
+      >
+        Entrar
+      </button>
+
+      <div class="register-link">
+        ¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="support" routerLink="/soporte">
+  <div class="bubble">Atención al cliente</div>
+  <img 
+    src="https://i2.wp.com/images.genshin-builds.com/genshin/characters/mualani/image.png?strip=all&quality=100&w=160" 
+    alt="soporte"
+  />
+</div>
