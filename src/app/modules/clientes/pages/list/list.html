@@ -1,36 +1,58 @@
-<div class="dashboard-container">
-  <header class="header">
-    <h1>Panel de Cotizaciones</h1>
-    <p>Gestiona tus productos y genera nuevas propuestas</p>
+<div class="main-wrapper">
+  <nav class="glass-nav">
+    <div class="logo">SCOTIZAM</div>
+    <div class="auth-box">
+      <button class="login-btn" routerLink="/login">Log In / Sign Up</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Sistema de Compra Online</h1>
+    <p>Calidad y confianza en cada transacción</p>
   </header>
 
-  <main class="content">
-    <div class="action-bar">
-      <button class="add-main-btn" routerLink="../form">
-        + Nuevo Producto
-      </button>
-    </div>
-
-    <div class="products-grid">
-      <div class="product-card" *ngFor="let item of items">
-        <div class="product-info">
-          <h3>{{item.nombre}}</h3>
-          <p>{{item.descripcion}}</p>
-          <span class="price">{{item.precio | currency}}</span>
-        </div>
-        <div class="card-actions">
-          <button class="edit-btn" [routerLink]="['../form', item.id]">Editar</button>
-          <button class="add-btn">Cotizar</button>
+  <section class="container">
+    <div class="product-grid">
+      <div class="product-card" *ngFor="let item of items.slice(0, 6)">
+        <div class="glass-inner">
+          <div class="product-img">
+            <img [src]="item.imagen" alt="Producto">
+          </div>
+          <div class="product-info">
+            <h3>{{item.nombre}}</h3>
+            <span class="price">{{item.precio | currency}}</span>
+          </div>
+          <button class="action-btn">Adquirir</button>
         </div>
       </div>
     </div>
-  </main>
-</div>
+  </section>
 
-<div class="support" routerLink="/soporte">
-  <div class="bubble">Atención al cliente</div>
-  <img 
-    src="https://i2.wp.com/images.genshin-builds.com/genshin/characters/mualani/image.png?strip=all&quality=100&w=160" 
-    alt="soporte"
-  />
+  <section class="extra-info">
+    <div class="info-card">
+      <h4>Guía de Inicio Rápido</h4>
+      <p>1. Selecciona tu producto favorito del catálogo digital.<br>
+         2. Verifica las especificaciones y el tiempo de entrega estimado.</p>
+    </div>
+    <div class="info-card">
+      <h4>Garantía Scotizam</h4>
+      <p>Todos nuestros procesos están protegidos por encriptación de grado militar para tu total seguridad.</p>
+    </div>
+  </section>
+
+  <footer class="glass-footer">
+    <div class="footer-content">
+      <div class="socials">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://twitter.com" target="_blank">X (Twitter)</a>
+      </div>
+      <p class="copy">© 2026 SCOTIZAM. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <div class="support-widget" routerLink="/soporte">
+    <img src="https://i2.wp.com/images.genshin-builds.com/genshin/characters/mualani/image.png?strip=all&quality=100&w=160" alt="Soporte">
+    <div class="support-text">Atención al cliente</div>
+  </div>
 </div>
