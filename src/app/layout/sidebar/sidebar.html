@@ -1,9 +1,35 @@
-<div class="sidebar glass">
+<div class="sidebar-wrapper">
+  <div class="sidebar-header">
+    <div class="logo">SCO</div> </div>
 
-  <h3>Sistema</h3>
+  <nav class="sidebar-nav">
+    <ul>
+      <li routerLinkActive="active">
+        <a routerLink="/admin">
+          <i class="icon-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/cotizaciones">
+          <i class="icon-file-text"></i> <span>Cotizaciones</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/clientes">
+          <i class="icon-users"></i> <span>Clientes</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/productos">
+          <i class="icon-box"></i> <span>x</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-  <a routerLink="/cotizaciones" routerLinkActive="active">Cotizaciones</a>
-  <a routerLink="/clientes">Clientes</a>
-  <a routerLink="/productos">Productos</a>
-
+  <div class="sidebar-footer">
+    <a (click)="logout()" class="logout-link">
+      <i class="icon-log-out"></i> <span>Cerrar Sesión</span>
+    </a>
+  </div>
 </div>

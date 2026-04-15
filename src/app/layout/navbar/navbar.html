@@ -1,4 +1,20 @@
-<div class="navbar glass">
-  <div>Dashboard</div>
-  <div class="user">Admin</div>
+<div class="navbar-wrapper">
+  <div class="left-section">
+    <button class="menu-hamburger" (click)="toggleSidebar()" [class.open]="!(isCollapsed$ | async)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <h1 class="page-title">{{ pageTitle }}</h1>
+  </div>
+
+  <div class="right-section">
+    <div class="user-profile">
+      <img src="https://i2.wp.com/images.genshin-builds.com/genshin/characters/mualani/image.png?strip=all&quality=100&w=160" alt="Admin" class="avatar">
+      <div class="user-info">
+        <span class="user-name">Administrador</span>
+        <span class="user-role">Acceso Completo</span>
+      </div>
+    </div>
+  </div>
 </div>

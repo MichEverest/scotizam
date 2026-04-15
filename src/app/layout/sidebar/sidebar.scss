@@ -1,22 +1,104 @@
-.sidebar {
-  width: 240px;
-  padding: 20px;
+:host {
+  display: block;
+  height: 100vh;
+  width: 260px; /* Ancho fijo */
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.sidebar-wrapper {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  background: rgba(13, 22, 38, 0.4); /* Fondo muy oscuro y traslúcido */
+  backdrop-filter: blur(25px) saturate(160%); /* Efecto Liquid Glass potente */
+  border-right: 1px solid rgba(255, 255, 255, 0.08); /* Borde sutil */
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
 }
 
-a {
-  padding: 10px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
+.sidebar-header {
+  height: 70px; /* Misma altura que el navbar para alinearlos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 }
 
-a:hover {
-  background: rgba(255,255,255,0.1);
+.sidebar-nav {
+  flex: 1; /* Ocupa el espacio central */
+  padding: 30px 15px;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin-bottom: 8px;
+      
+      a {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 18px;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        border-radius: 12px;
+        transition: all 0.25s ease;
+        font-size: 0.95rem;
+
+        i { font-size: 1.2rem; opacity: 0.7; } /* Estilo para los iconos */
+      }
+
+      &:hover a {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        i { opacity: 1; }
+      }
+
+      &.active a {
+        background: linear-gradient(135deg, rgba(255, 204, 0, 0.2), rgba(255, 204, 0, 0.05)); /* Toque amarillo sutil */
+        color: #ffcc00;
+        border: 1px solid rgba(255, 204, 0, 0.3);
+        box-shadow: 0 4px 15px rgba(255, 204, 0, 0.1);
+        font-weight: 500;
+        i { opacity: 1; color: #ffcc00; }
+      }
+    }
+  }
 }
 
-.active {
-  background: rgba(255,255,255,0.2);
+.sidebar-footer {
+  padding: 20px 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  
+  .logout-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 18px;
+    color: rgba(255, 82, 82, 0.8);
+    text-decoration: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    i { font-size: 1.2rem; }
+
+    &:hover {
+      background: rgba(255, 82, 82, 0.1);
+      color: rgb(255, 82, 82);
+    }
+  }
+}
+
+:host.collapsed {
+  width: 70px;
+  .sidebar-header .logo { display: none; }
+  .sidebar-nav ul li a span { display: none; }
+  .sidebar-footer .logout-link span { display: none; }
 }

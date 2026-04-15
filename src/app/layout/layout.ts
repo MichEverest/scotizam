@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Sidebar } from './sidebar/sidebar';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs'; // Importamos el tipo Observable
+import { SidebarService } from '../core/services/sidevar.service';
 import { Navbar } from './navbar/navbar';
+import { Sidebar } from './sidebar/sidebar';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    Sidebar,
-    Navbar
-  ],
+  imports: [CommonModule, RouterModule, Navbar, Sidebar],
   templateUrl: './layout.html',
   styleUrls: ['./layout.scss']
 })
-export class Layout {}
+export class Layout {
+  isCollapsed$: Observable<boolean>;
+
+  constructor(private sidebarService: SidebarService) {
+    this.isCollapsed$ = this.sidebarService.isCollapsed$;
+  }
+}

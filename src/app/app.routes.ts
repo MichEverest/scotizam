@@ -19,6 +19,12 @@ export const AppRoutes: Routes = [
       import('./layout/layout').then(m => m.Layout),
     children: [
       {
+        path: 'admin',
+        loadComponent: () =>
+          import('./modules/admin/admin-dashboard')
+            .then(m => m.AdminDashboard)
+      },
+      {
         path: 'cotizaciones',
         loadChildren: () =>
           import('./modules/cotizaciones/cotizaciones-routing')
@@ -31,10 +37,10 @@ export const AppRoutes: Routes = [
             .then(m => m.List)
       },
       {
-        path: 'admin',
+        path: 'productos',
         loadComponent: () =>
-          import('./modules/admin/admin-dashboard')
-            .then(m => m.AdminDashboard)
+          import('./modules/productos/pages/list/list')
+            .then(m => m.List)
       },
       {
         path: 'soporte',
@@ -44,7 +50,7 @@ export const AppRoutes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'cotizaciones',
+        redirectTo: 'admin',
         pathMatch: 'full'
       }
     ]
