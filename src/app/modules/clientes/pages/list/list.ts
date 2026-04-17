@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 export class List implements OnInit {
 
   items: any[] = [
-    { id: 1, nombre: 'Producto X', precio: 99.99, imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9JXSaafpWjfXmHH6lErS2OWLKIsj9uGihHA&s' },
+    { id: 1, nombre: 'Producto X', precio: 99.99, imagen: 'https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Item_Primogem.png/revision/latest?cb=20201117071158' },
     { id: 2, nombre: 'X1', precio: 50.00, imagen: 'https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Item_Primogem.png/revision/latest?cb=20201117071158' },
     { id: 3, nombre: 'X2', precio: 25.00, imagen: 'https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Item_Primogem.png/revision/latest?cb=20201117071158' },
     { id: 4, nombre: 'X3', precio: 15.99, imagen: 'https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Item_Primogem.png/revision/latest?cb=20201117071158' },

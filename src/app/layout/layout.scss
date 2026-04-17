@@ -42,3 +42,21 @@
     pointer-events: none; /* Evita interactuar con el dashboard si el menú está abierto */
   }
 }
+
+.zoom-container {
+  flex: 1;
+  padding: 40px; 
+  transform-origin: center center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  overflow-x: hidden; 
+  overflow-y: auto;
+}
+
+/* Cuando el sidebar NO está colapsado (es decir, abierto), 
+   aplicamos el efecto de alejamiento al contenido principal */
+.layout-container.sidebar-open .zoom-container {
+  transform: scale(0.88) translateZ(0); 
+  border-radius: 50px;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
+}

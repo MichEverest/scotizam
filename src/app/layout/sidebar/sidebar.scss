@@ -5,48 +5,34 @@
   left: 0;
   top: 0;
   z-index: 1000;
-  /* El :host no tiene ancho fijo para no romper el flex del layout */
 }
 
 .sidebar-wrapper {
   height: 100%;
-  width: 260px; // Ancho cuando está ABIERTO
+  width: 260px;
   display: flex;
   flex-direction: column;
-  
-  // Efecto Liquid Glass
   background: rgba(13, 22, 38, 0.7) !important; 
   backdrop-filter: blur(25px) saturate(160%);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.85);
-  
-  // Transición suave de ancho
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 
-  /* --- ESTADO COLAPSADO (Cerrado) --- */
   &.collapsed {
     width: 80px;
 
-    .sidebar-header .logo {
-      opacity: 0;
-      transform: scale(0.5);
+    .sidebar-header {
+      justify-content: center; /* Centra la hamburguesa al cerrar */
+      padding: 0;
+      .logo { opacity: 0; display: none; }
     }
 
     .sidebar-nav ul li a {
       justify-content: center;
       padding: 12px 0;
-      
-      span {
-        opacity: 0;
-        display: none; // Evita que el texto empuje el icono
-      }
-
-      i {
-        margin: 0;
-        font-size: 1.5rem;
-        opacity: 1;
-      }
+      span { opacity: 0; display: none; }
+      i { margin: 0; font-size: 1.5rem; opacity: 1; }
     }
 
     .sidebar-footer .logout-link {
@@ -56,12 +42,13 @@
   }
 }
 
-/* --- CABECERA (LOGO) --- */
 .sidebar-header {
   height: 70px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Alineación a la izquierda */
+  padding: 0 20px;
+  gap: 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   
   .logo {
@@ -74,7 +61,33 @@
   }
 }
 
-/* --- NAVEGACIÓN --- */
+/* Estilo específico del botón de la izquierda */
+.menu-hamburger {
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  flex-shrink: 0;
+
+  span {
+    width: 100%;
+    height: 2px;
+    background: #ffcc00;
+    transition: all 0.3s ease;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  }
+}
+
 .sidebar-nav {
   flex: 1;
   padding: 30px 15px;
@@ -96,7 +109,7 @@
         text-decoration: none;
         border-radius: 14px;
         transition: all 0.25s ease;
-        white-space: nowrap; // Evita que el texto salte de línea al animar
+        white-space: nowrap;
 
         i {
           font-size: 1.2rem;
@@ -123,14 +136,12 @@
         color: #ffcc00;
         border: 1px solid rgba(255, 204, 0, 0.3);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        
         i { color: #ffcc00; opacity: 1; }
       }
     }
   }
 }
 
-/* --- FOOTER (LOGOUT) --- */
 .sidebar-footer {
   padding: 20px 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -155,23 +166,4 @@
       transform: scale(1.02);
     }
   }
-}
-
-.zoom-container {
-  flex: 1;
-  /* Este padding es el "colchón" para que el zoom no choque con los bordes */
-  padding: 40px; 
-  transform-origin: center center;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  background: transparent;
-  /* IMPORTANTE: Evita que el scroll corte el escalado */
-  overflow-x: hidden; 
-  overflow-y: auto;
-}
-
-.sidebar-open .zoom-container {
-  /* Bajamos el scale un poco más y usamos translateZ para dar profundidad */
-  transform: scale(0.88) translateZ(0); 
-  border-radius: 50px;
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
 }

@@ -1,33 +1,36 @@
 <div class="sidebar-wrapper" [class.collapsed]="isCollapsed$ | async">
   <div class="sidebar-header">
-    <div class="logo">SCO</div>
     <button class="menu-hamburger" (click)="toggleSidebar()" [class.open]="!(isCollapsed$ | async)">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
+    
+    <div class="logo">SCO</div>
   </div>
 
   <nav class="sidebar-nav">
     <ul>
-      <li routerLinkActive="active">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a routerLink="/admin">
-          <i class="icon-dashboard"></i> <span>Dashboard</span>
+          <i class="icon-dashboard"></i> 
+          <span>Dashboard</span>
         </a>
       </li>
       <li routerLinkActive="active">
         <a routerLink="/cotizaciones">
-          <i class="icon-file-text"></i> <span>Cotizaciones</span>
+          <i class="icon-file-text"></i> 
+          <span>Cotizaciones</span>
         </a>
       </li>
       <li routerLinkActive="active">
         <a routerLink="/clientes">
-          <i class="icon-users"></i> <span>Clientes</span>
+          <i class="icon-users"></i> 
+          <span>Clientes</span>
         </a>
       </li>
       <li routerLinkActive="active">
         <a routerLink="/productos">
-          <i class="icon-box"></i> <span>Productos</span>
+          <i class="icon-box"></i> 
+          <span>Productos</span>
         </a>
       </li>
     </ul>
@@ -35,7 +38,8 @@
 
   <div class="sidebar-footer">
     <a (click)="logout()" class="logout-link">
-      <i class="icon-log-out"></i> <span>Cerrar Sesión</span>
+      <i class="icon-log-out"></i> 
+      <span>Cerrar Sesión</span>
     </a>
   </div>
 </div>

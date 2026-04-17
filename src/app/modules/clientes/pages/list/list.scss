@@ -7,7 +7,6 @@
   flex-direction: column;
 }
 
-/* Nav */
 .glass-nav {
   display: flex;
   justify-content: space-between;
@@ -33,14 +32,12 @@
   &:hover { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 204, 0, 0.4); }
 }
 
-/* Hero */
 .hero {
   text-align: center;
   padding: 50px 20px;
   h1 { font-size: 2.8rem; text-shadow: 0 5px 15px rgba(0,0,0,0.6); }
 }
 
-/* Grid */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -75,7 +72,6 @@
   filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
 }
 
-/* Info Section */
 .extra-info {
   display: flex;
   justify-content: center;
@@ -92,7 +88,6 @@
   backdrop-filter: blur(5px);
 }
 
-/* Footer */
 .glass-footer {
   margin-top: auto;
   padding: 40px;
@@ -103,7 +98,6 @@
   .copy { margin-top: 20px; font-size: 13px; opacity: 0.6; }
 }
 
-/* Soporte Inferior Izquierda */
 .support-widget {
   position: fixed;
   bottom: 25px;

@@ -2,16 +2,14 @@
   display: block;
   width: 100%;
   min-height: 100vh;
-  /* Agregamos la imagen aquí para que viaje con el componente */
-  background: url('https://wallpapercave.com/wp/wp7818720.jpg') no-repeat center center fixed;
+  background: url('https://backiee.com/static/wallpapers/1000x563/395611.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
 .admin-container {
-  /* Mantenemos el padding de 100px para evitar recortes en el título */
   padding: 100px;
   color: white;
-  background: rgba(0, 0, 0, 0.3); /* Capa oscura para que resalten las cards */
+  background: rgba(0, 0, 0, 0.3);
   min-height: 100vh;
   box-sizing: border-box;
 }
@@ -20,11 +18,11 @@
   margin-bottom: 40px;
   
   h1 {
-    font-size: 2.8rem; /* Un poco más grande para que sea imponente */
+    font-size: 2.8rem;
     font-weight: 800;
     text-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     margin: 0;
-    white-space: nowrap; /* Evita cortes por saltos de línea */
+    white-space: nowrap;
     background: linear-gradient(to right, #ffffff, #ffcc00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -44,7 +42,6 @@
 }
 
 .admin-card {
-  /* Efecto Liquid Glass Potenciado */
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -71,7 +68,6 @@
   }
 }
 
-/* Estilos de elementos internos */
 .search-bar {
   width: 100%;
   padding: 14px;
