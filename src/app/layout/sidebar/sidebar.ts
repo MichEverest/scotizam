@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { SidebarService } from '../../core/services/sidevar.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,14 +11,18 @@ import { RouterModule, Router } from '@angular/router';
   templateUrl: './sidebar.html',
   styleUrls: ['./sidebar.scss']
 })
-export class Sidebar implements OnInit {
+export class Sidebar {
+  isCollapsed$: Observable<boolean>;
 
-  constructor(private router: Router) {}
+  constructor(private sidebarService: SidebarService) {
+    this.isCollapsed$ = this.sidebarService.isCollapsed$;
+  }
 
-  ngOnInit(): void {}
+  toggleSidebar() {
+    this.sidebarService.toggle();
+  }
 
   logout() {
     console.log('Cerrando sesión...');
-    this.router.navigate(['/login']);
   }
 }

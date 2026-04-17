@@ -1,6 +1,12 @@
-<div class="sidebar-wrapper">
+<div class="sidebar-wrapper" [class.collapsed]="isCollapsed$ | async">
   <div class="sidebar-header">
-    <div class="logo">SCO</div> </div>
+    <div class="logo">SCO</div>
+    <button class="menu-hamburger" (click)="toggleSidebar()" [class.open]="!(isCollapsed$ | async)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 
   <nav class="sidebar-nav">
     <ul>
@@ -21,7 +27,7 @@
       </li>
       <li routerLinkActive="active">
         <a routerLink="/productos">
-          <i class="icon-box"></i> <span>x</span>
+          <i class="icon-box"></i> <span>Productos</span>
         </a>
       </li>
     </ul>

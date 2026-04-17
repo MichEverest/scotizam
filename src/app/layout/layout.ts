@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Observable } from 'rxjs'; // Importamos el tipo Observable
+import { Observable } from 'rxjs';
 import { SidebarService } from '../core/services/sidevar.service';
 import { Navbar } from './navbar/navbar';
 import { Sidebar } from './sidebar/sidebar';
